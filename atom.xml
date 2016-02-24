@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-02-23T13:29:04.000Z</updated>
+  <updated>2016-02-24T15:14:24.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -18,8 +18,8 @@
     <title></title>
     <link href="http://yoursite.com/2016/02/24/%E7%AC%AC%E4%B8%80%E7%AB%A0%20JavaScript%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"/>
     <id>http://yoursite.com/2016/02/24/第一章 JavaScript基本概念/</id>
-    <published>2016-02-24T15:02:32.000Z</published>
-    <updated>2016-02-23T13:29:04.000Z</updated>
+    <published>2016-02-24T15:14:24.000Z</published>
+    <updated>2016-02-24T15:14:24.000Z</updated>
     <content type="html"><![CDATA[<h1 id="u7B2C1_u7AE0_JavaScript_u57FA_u672C_u8BED_u6CD5"><a href="#u7B2C1_u7AE0_JavaScript_u57FA_u672C_u8BED_u6CD5" class="headerlink" title="第1章 JavaScript基本语法"></a>第1章 JavaScript基本语法</h1><h2 id="1-1__u6807_u8BC6_u7B26"><a href="#1-1__u6807_u8BC6_u7B26" class="headerlink" title="1.1 标识符"></a>1.1 标识符</h2><p>&emsp;&emsp;所谓标识符,就是指变量、函数、属性的名字,或者函数的参数。标识符可以是按照下列格式规则 组合起来的一或多个字符:</p>
 <ul>
 <li>第一个字符必须是一个字母、下划线或一个美元符号($);</li>
