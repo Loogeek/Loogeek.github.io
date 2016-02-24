@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-02-24T15:14:24.000Z</updated>
+  <updated>2016-02-24T15:24:14.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,12 +15,12 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title><![CDATA[第1章 JavaScript基本语法]]></title>
     <link href="http://yoursite.com/2016/02/24/%E7%AC%AC%E4%B8%80%E7%AB%A0%20JavaScript%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"/>
     <id>http://yoursite.com/2016/02/24/第一章 JavaScript基本概念/</id>
-    <published>2016-02-24T15:14:24.000Z</published>
-    <updated>2016-02-24T15:14:24.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="u7B2C1_u7AE0_JavaScript_u57FA_u672C_u8BED_u6CD5"><a href="#u7B2C1_u7AE0_JavaScript_u57FA_u672C_u8BED_u6CD5" class="headerlink" title="第1章 JavaScript基本语法"></a>第1章 JavaScript基本语法</h1><h2 id="1-1__u6807_u8BC6_u7B26"><a href="#1-1__u6807_u8BC6_u7B26" class="headerlink" title="1.1 标识符"></a>1.1 标识符</h2><p>&emsp;&emsp;所谓标识符,就是指变量、函数、属性的名字,或者函数的参数。标识符可以是按照下列格式规则 组合起来的一或多个字符:</p>
+    <published>2016-02-24T15:24:14.000Z</published>
+    <updated>2016-02-24T15:24:14.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="1-1__u6807_u8BC6_u7B26"><a href="#1-1__u6807_u8BC6_u7B26" class="headerlink" title="1.1 标识符"></a>1.1 标识符</h2><p>&emsp;&emsp;所谓标识符,就是指变量、函数、属性的名字,或者函数的参数。标识符可以是按照下列格式规则 组合起来的一或多个字符:</p>
 <ul>
 <li>第一个字符必须是一个字母、下划线或一个美元符号($);</li>
 <li>其他字符可以是字母、下划线、美元符号或数字。</li>
@@ -143,7 +143,29 @@
 </ul>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h1 id="u7B2C1_u7AE0_JavaScript_u57FA_u672C_u8BED_u6CD5"><a href="#u7B2C1_u7AE0_JavaScript_u57FA_u672C_u8BED_u6CD5" class="headerlink" title]]>
+    <![CDATA[<h2 id="1-1__u6807_u8BC6_u7B26"><a href="#1-1__u6807_u8BC6_u7B26" class="headerlink" title="1.1 标识符"></a>1.1 标识符</h2><p>&emsp;&emsp;所谓标识符,就是]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <link href="http://yoursite.com/2016/01/29/hello-world/"/>
+    <id>http://yoursite.com/2016/01/29/hello-world/</id>
+    <published>2016-01-29T13:46:57.000Z</published>
+    <updated>2016-01-29T12:36:26.000Z</updated>
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.]]>
     </summary>
     
   </entry>
