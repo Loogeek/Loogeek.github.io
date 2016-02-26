@@ -274,8 +274,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/02/24/第一章 JavaScript基本概念/" itemprop="url">
-                  第1章 JavaScript基本语法
+                <a class="post-title-link" href="/2016/02/24/第2章-变量、作用域和内存/" itemprop="url">
+                  第2章 变量、作用域和内存
                 </a>
               
             
@@ -288,7 +288,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-02-24T23:24:14+08:00" content="2016-02-24">
+            <time itemprop="dateCreated" datetime="2016-02-24T23:29:54+08:00" content="2016-02-24">
               2016-02-24
             </time>
           </span>
@@ -299,8 +299,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/02/24/第一章 JavaScript基本概念/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/24/第一章 JavaScript基本概念/" itemprop="commentsCount"></span>
+                <a href="/2016/02/24/第2章-变量、作用域和内存/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/24/第2章-变量、作用域和内存/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -323,126 +323,28 @@
       
         
           
-            <h2 id="1-1__u6807_u8BC6_u7B26"><a href="#1-1__u6807_u8BC6_u7B26" class="headerlink" title="1.1 标识符"></a>1.1 标识符</h2><p>&emsp;&emsp;所谓标识符,就是指变量、函数、属性的名字,或者函数的参数。标识符可以是按照下列格式规则 组合起来的一或多个字符:</p>
+            <h2 id="2-1__u57FA_u672C_u7C7B_u578B_u548C_u5F15_u7528_u7C7B_u578B_u7684_u503C"><a href="#2-1__u57FA_u672C_u7C7B_u578B_u548C_u5F15_u7528_u7C7B_u578B_u7684_u503C" class="headerlink" title="2.1 基本类型和引用类型的值"></a>2.1 基本类型和引用类型的值</h2><p>&emsp;&emsp;ECMAScript变量可能包含两种不同数据类型的值:基本类型值和引用类型值。基本类型值指的是简单的数据段,而引用类型值指那些可能由多个值构成的对象。<br>&emsp;&emsp;在将一个值赋给变量时,解析器必须确定这个值是基本类型值还是引用类型值。第3章讨论了5种基本数据类型:Undefined、Null、Boolean、Number和String。这5种基本数据类型是按值访问的,因为可以操作保存在变量中的实际的值。</p>
+<h3 id="2-1-1__u4F20_u9012_u53C2_u6570"><a href="#2-1-1__u4F20_u9012_u53C2_u6570" class="headerlink" title="2.1.1 传递参数"></a>2.1.1 传递参数</h3><p>&emsp;&emsp;ECMAScript 中所有函数的参数都是按值传递的。也就是说,把函数外部的值复制给函数内部的参 数,就和把值从一个变量复制到另一个变量一样。基本类型值的传递如同基本类型变量的复制一样,而 引用类型值的传递,则如同引用类型变量的复制一样。有不少开发人员在这一点上可能会感到困惑,因 为访问变量有按值和按引用两种方式,而参数只能按值传递。<br>&emsp;&emsp;在向参数传递基本类型的值时,被传递的值会被复制给一个局部变量(即命名参数,或者用 ECMAScript 的概念来说,就是 arguments 对象中的一个元素)。在向参数传递引用类型的值时,会把 这个值在内存中的地址复制给一个局部变量,因此这个局部变量的变化会反映在函数的外部。</p>
+<h3 id="2-1-2__u68C0_u6D4B_u7C7B_u578B"><a href="#2-1-2__u68C0_u6D4B_u7C7B_u578B" class="headerlink" title="2.1.2 检测类型"></a>2.1.2 检测类型</h3><p>&emsp;&emsp;要检测一个变量是不是基本数据类型?第 3 章介绍的 typeof 操作符是最佳的工具。说得更具体一 点,typeof 操作符是确定一个变量是字符串、数值、布尔值,还是 undefined 的最佳工具。如果变 量的值是一个对象或 null,则 typeof 操作符会像下面例子中所示的那样返回”object”。<br>&emsp;&emsp;可通过instanceof操作符来对引用类型进行检查<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">result = variable <span class="keyword">instanceof</span> constructor</span><br><span class="line">alert(person <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">// 变量 person 是 Object 吗?</span></span><br><span class="line">alert(colors <span class="keyword">instanceof</span> <span class="built_in">Array</span>);  <span class="comment">// 变量 colors 是 Array 吗?</span></span><br><span class="line">alert(patterninstanceofRegExp);  <span class="comment">//变量pattern是RegExp吗?</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;根据规定,所有引用类型的值都是 Object 的实例。因此,在检测一个引用类型值和Object构造函数时,instanceof 操作符始终会返回 true。当然,如果使用 instanceof 操作符检测基本类型的值,则该操作符始终会返回false,因为基本类型不是对象。</p>
+<h2 id="2-2__u6267_u884C_u73AF_u5883_u53CA_u4F5C_u7528_u57DF"><a href="#2-2__u6267_u884C_u73AF_u5883_u53CA_u4F5C_u7528_u57DF" class="headerlink" title="2.2 执行环境及作用域"></a>2.2 执行环境及作用域</h2><p>&emsp;&emsp;执行环境(execution context)是 JavaScript中最为重要的一个概念。执行环境定义了变量或函数有权访问的其他数据,决定了它们各自的行为。每个执行环境都有一个 与之关联的变量对象(variable object),环境中定义的所有变量和函数都保存在这个对象中。<br>&emsp;&emsp;每个函数都有自己的执行环境。当执行流进入一个函数时,函数的环境就会被推入一个环境栈中。而在函数执行之后,栈将其环境弹出,把控制权返回给之前的执行环境。ECMAScript 程序中的执行流正是由这个方便的机制控制着。<br>&emsp;&emsp;当代码在一个环境中执行时,会创建变量对象的一个作用域链(scope chain)。作用域链的用途,是 保证对执行环境有权访问的所有变量和函数的有序访问。作用域链的前端,始终都是当前执行的代码所在环境的变量对象。如果这个环境是函数,则将其活动对象(activation object)作为变量对象。活动对象在最开始时只包含一个变量,即arguments对象(这个对象在全局环境中是不存在的)。作用域链中的下一个变量对象来自包含(外部)环境,而再下一个变量对象则来自下一个包含环境。这样,一直延续到全局执行环境;全局执行环境的变量对象始终都是作用域链中的最后一个对象。</p>
+<h3 id="2-2-1__u5EF6_u957F_u4F5C_u7528_u57DF_u94FE"><a href="#2-2-1__u5EF6_u957F_u4F5C_u7528_u57DF_u94FE" class="headerlink" title="2.2.1 延长作用域链"></a>2.2.1 延长作用域链</h3><p>&emsp;&emsp;虽然执行环境的类型总共只有两种——全局和局部(函数)可通过下面语句在作用域链的前端临时增加一个变量对象来延长作用域链。</p>
 <ul>
-<li>第一个字符必须是一个字母、下划线或一个美元符号($);</li>
-<li>其他字符可以是字母、下划线、美元符号或数字。</li>
+<li>try-catch 语句的 catch 块;</li>
+<li>with 语句。</li>
 </ul>
-<h2 id="1-2__u6570_u636E_u7C7B_u578B"><a href="#1-2__u6570_u636E_u7C7B_u578B" class="headerlink" title="1.2 数据类型"></a>1.2 数据类型</h2><p>&emsp;&emsp;ECMAScript中有5种简单数据类型(也称为基本数据类型):Undefined、Null、Boolean、Number 和 String。还有 1 种复杂数据类型——Object,Object 本质上是由一组无序的名值对组成的。</p>
-<h3 id="1-2-1_typeof_u64CD_u4F5C_u7B26"><a href="#1-2-1_typeof_u64CD_u4F5C_u7B26" class="headerlink" title="1.2.1 typeof操作符"></a>1.2.1 typeof操作符</h3><p>&emsp;&emsp;鉴于 ECMAScript 是松散类型的,因此需要有一种手段来检测给定变量的数据类型——typeof 就 是负责提供这方面信息的操作符。对一个值使用 typeof 操作符可能返回下列某个字符串:</p>
+<h2 id="2-3__u5783_u573E_u6536_u96C6"><a href="#2-3__u5783_u573E_u6536_u96C6" class="headerlink" title="2.3 垃圾收集"></a>2.3 垃圾收集</h2><p>&emsp;&emsp;JavaScript 具有自动垃圾收集机制,也就是说,执行环境会负责管理代码执行过程中使用的内存。</p>
+<h3 id="2-3-1__u6807_u8BB0_u6E05_u9664"><a href="#2-3-1__u6807_u8BB0_u6E05_u9664" class="headerlink" title="2.3.1 标记清除"></a>2.3.1 标记清除</h3><p>&emsp;&emsp;JavaScript 中最常用的垃圾收集方式是标记清除(mark-and-sweep)。垃圾收集器在运行的时候会给存储在内存中的所有变量都加上标记(当然,可以使用任何标记方式)。然后,它会去掉环境中的变量以及被环境中的变量引用的变量的标记。而在此之后再被加上标记的变量将被视为准备删除的变量,原因是环境中的变量已经无法访问到这些变量了。最后,垃圾收集器完成内存清除工作,销毁那些带标记的值并回收它们所占用的内存空间</p>
+<h3 id="2-3-2__u5F15_u7528_u8BA1_u6570"><a href="#2-3-2__u5F15_u7528_u8BA1_u6570" class="headerlink" title="2.3.2 引用计数"></a>2.3.2 引用计数</h3><p>&emsp;&emsp;另一种垃圾收集算法是“引用计数”,这种算法的思想是跟踪记录所有值被引用的次数。JavaScript<br>引擎目前都不再使用这种算法;但在 IE 中访问非原生 JavaScript 对象(如 DOM 元素)时,这种<br>   算法仍然可能会导致问题。</p>
+<h3 id="2-3-3__u7BA1_u7406_u5185_u5B58"><a href="#2-3-3__u7BA1_u7406_u5185_u5B58" class="headerlink" title="2.3.3 管理内存"></a>2.3.3 管理内存</h3><p>&emsp;&emsp;解除引用(dereferencing)不仅有助于消除循环引用现象,而且对垃圾收集也有好处。为了确保有效地回收内存,应该及时解除不再使用的全局对象、全局对象属性以及循环引用变量的引用。</p>
+<h2 id="2-4__u5C0F_u7ED3"><a href="#2-4__u5C0F_u7ED3" class="headerlink" title="2.4 小结"></a>2.4 小结</h2><p>&emsp;&emsp;JavaScript 变量可以用来保存两种类型的值:基本类型值和引用类型值。基本类型的值源自以下5种基本数据类型:Undefined、Null、Boolean、Number 和 String。基本类型值和引用类型值具 有以下特点:</p>
 <ul>
-<li>“undefined”——如果这个值未定义;</li>
-<li>“boolean”——如果这个值是布尔值;</li>
-<li>“string”——如果这个值是字符串;</li>
-<li>“number”——如果这个值是数值;</li>
-<li>“object”——如果这个值是对象或 null;</li>
-<li>“function”——如果这个值是函数。</li>
-</ul>
-<p>&emsp;&emsp;有些时候,typeof操作符会返回一些令人迷惑但技术上却正确的值。比如,调用typeof null会返回”object”,因为特殊值null 被认为是一个空的对象引用。Safari 5及之前版本、Chrome 7及之前版本在对正则表达式调用typeof操作符时会返回”function”,而其他浏览器在这种情况下会返回 “object”。</p>
-<h3 id="1-2-2_Undefined_u7C7B_u578B"><a href="#1-2-2_Undefined_u7C7B_u578B" class="headerlink" title="1.2.2 Undefined类型"></a>1.2.2 Undefined类型</h3><p>&emsp;&emsp;Undefined 类型只有一个值,即特殊的 undefined。在使用 var 声明变量但未对其加以初始化时,这个变量的值就是 undefined<br>&emsp;&emsp;值得注意的是:对未初始化的变量执行typeof操作符会返回undefined 值,而对未声明的变量执行typeof 操作符同样也会返回undefined值<br>var message;  // 这个变量声明之后默认取得了 undefined 值<br>alert(typeof message);  // “undefined”<br>alert(typeof age);      // “undefined”</p>
-<h3 id="1-2-3_Null_u7C7B_u578B"><a href="#1-2-3_Null_u7C7B_u578B" class="headerlink" title="1.2.3 Null类型"></a>1.2.3 Null类型</h3><p>&emsp;&emsp;Null类型是第二个只有一个值的数据类型,这个特殊的值是 null。从逻辑角度来看,null 值表 示一个空对象指针,而这也正是使用 typeof 操作符检测 null 值时会返回”object”的原因，如果定义的变量准备在将来用于保存对象,那么最好将该变量初始化为 null 而不是其他值。这样 一来,只要直接检查 null 值就可以知道相应的变量是否已经保存了一个对象的引用</p>
-<h3 id="1-2-4_Boolean_u7C7B_u578B"><a href="#1-2-4_Boolean_u7C7B_u578B" class="headerlink" title="1.2.4 Boolean类型"></a>1.2.4 Boolean类型</h3><p>&emsp;&emsp;下表给出了各种数据类型及其对 应的转换规则:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">数据类型</th>
-<th style="text-align:center">转换为true的值</th>
-<th style="text-align:center">转换为false的值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Boolean</td>
-<td style="text-align:center">true</td>
-<td style="text-align:center">false</td>
-</tr>
-<tr>
-<td style="text-align:center">String</td>
-<td style="text-align:center">任何非空字符串</td>
-<td style="text-align:center">“”(空字符串)</td>
-</tr>
-<tr>
-<td style="text-align:center">Number</td>
-<td style="text-align:center">任何非零数字值(包括无穷大)</td>
-<td style="text-align:center">0和NaN(参见本章后面有关NaN的内容)</td>
-</tr>
-<tr>
-<td style="text-align:center">Object</td>
-<td style="text-align:center">任何对象</td>
-<td style="text-align:center">null</td>
-</tr>
-<tr>
-<td style="text-align:center">Undefined</td>
-<td style="text-align:center">N/A</td>
-<td style="text-align:center">undefined</td>
-</tr>
-</tbody>
-</table>
-<h3 id="1-2-5_Number_u7C7B_u578B"><a href="#1-2-5_Number_u7C7B_u578B" class="headerlink" title="1.2.5 Number类型"></a>1.2.5 Number类型</h3><p>&emsp;&emsp;有3个函数可以把非数值转换为数值:Number()、parseInt()和 parseFloat()。第一个函数, 即转型函数 Number()可以用于任何数据类型,而另两个函数则专门用于把字符串转换成数值。这3个函数对于同样的输入会有返回不同的结果,Number()函数的转换规则如下:</p>
-<blockquote>
-<ul>
-<li>如果是 Boolean 值,true 和 false 将分别被转换为 1 和 0。</li>
-<li>如果是数字值,只是简单的传入和返回。</li>
-<li>如果是 null 值,返回 0。</li>
-<li>如果是 undefined,返回 NaN。</li>
-<li>如果是字符串,遵循下列规则:</li>
-<li>如果字符串中只包含数字(包括前面带正号或负号的情况),则将其转换为十进制数值,即”1” 会变成 1,”123”会变成 123,而”011”会变成 11(注意:前导的零被忽略了);</li>
-<li>如果字符串中包含有效的浮点格式,如”1.1”,则将其转换为对应的浮点数值(同样,也会忽 略前导零);</li>
-<li>如果字符串中包含有效的十六进制格式,例如”0xf”,则将其转换为相同大小的十进制整 数值;</li>
-<li>如果字符串是空的(不包含任何字符),则将其转换为 0;</li>
-<li>如果字符串中包含除上述格式之外的字符,则将其转换为 NaN。</li>
-<li>如果是对象,则调用对象的 valueOf()方法,然后依照前面的规则转换返回的值。如果转换<br>的结果是 NaN,则调用对象的 toString()方法,然后再次依照前面的规则转换返回的字符<br>串值。</li>
-</ul>
-</blockquote>
-<p>&emsp;&emsp;由于Number()函数在转换字符串时比较复杂而且不够合理,因此在处理整数的时候更常用的是parseInt()函数更多的是看其是否符合数值模式。它会忽略字符串前面的空格,直至找到第一个非空格字符。如果第一个字符不是数字字符或者负号,parseInt() 就会返回 NaN;也就是说,用 parseInt()转换空字符串会返回NaN(Number()对空字符返回0。如果第一个字符是数字字符,parseInt()会继续解析第二个字符,直到解析完所有后续字符或者遇到了一个非数字字符。例如,”1234blue”会被转换为1234,因为”blue”会被完全忽略。类似地,”22.5”会被转换为22,因为小数点并不是有效的数字字符。</p>
-<p>&emsp;&emsp;在使用parseInt()解析像八进制字面量的字符串时,ECMAScript 3 和 5 存在分歧。例如:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ECMAScript 3 认为是 56(八进制),ECMAScript 5 认为是 70(十进制)</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="built_in">parseInt</span>(<span class="string">"070"</span>);</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;由于在ECMAScript 5 JavaScript引擎中,parseInt()已经不具有解析八进制值的能力,因此前导的零会 被认为无效。</p>
-<p>&emsp;&emsp;为了消除在使用parseInt()函数时可能导致的上述困惑,可以为这个函数提供第二个参数:转换时使用的基数(即多少进制)。</p>
-<ul>
-<li>如果知道要解析的值是十六进制格式的字符串,那么指定基数16作为第二个参数,可以保证得到正确的结果。</li>
-<li>不指定基数意味着让parseInt()决定如何解析输入的字符串,因此为了避免错误的解析,我们建议无论在什么情况下都明确指定基数。</li>
-<li>多数情况下,我们要解析的都是十进制数值,因此始终将10作为第二个参数是 非常必要的。</li>
-</ul>
-<p>&emsp;&emsp;parseFloat()与parseInt()的区别是在parseFloat()中第一个小数点有效，并且parseFloat()始终都会忽略前导 的零,因此对十六进制格式的字符串则始终会被转换成0,并且果字符串包含的是一个可解析为整数的数(没有小数点,或者小数点后都是零),parseFloat()会返回整数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num1 = <span class="built_in">parseFloat</span>(<span class="string">"1234blue"</span>);  <span class="comment">//1234 (整数)  </span></span><br><span class="line"><span class="keyword">var</span> num2 = <span class="built_in">parseFloat</span>(<span class="string">"0xA"</span>);       <span class="comment">//0  </span></span><br><span class="line"><span class="keyword">var</span> num3 = <span class="built_in">parseFloat</span>(<span class="string">"22.5"</span>);      <span class="comment">//22.5   </span></span><br><span class="line"><span class="keyword">var</span> num4 = <span class="built_in">parseFloat</span>(<span class="string">"22.34.5"</span>);   <span class="comment">//22.34   </span></span><br><span class="line"><span class="keyword">var</span> num5 = <span class="built_in">parseFloat</span>(<span class="string">"0908.5"</span>);    <span class="comment">//908.5   </span></span><br><span class="line"><span class="keyword">var</span> num6 = <span class="built_in">parseFloat</span>(<span class="string">"3.125e7"</span>);   <span class="comment">//31250000</span></span><br></pre></td></tr></table></figure>
-<h3 id="1-2-6_String_u7C7B_u578B"><a href="#1-2-6_String_u7C7B_u578B" class="headerlink" title="1.2.6 String类型"></a>1.2.6 String类型</h3><p>&emsp;&emsp;String 类型用于表示由零或多个 16 位 Unicode 字符组成的字符序列,即字符串。</p>
-<h4 id="u5B57_u7B26_u4E32_u7684_u7279_u70B9"><a href="#u5B57_u7B26_u4E32_u7684_u7279_u70B9" class="headerlink" title="字符串的特点"></a>字符串的特点</h4><p>&emsp;&emsp;ECMAScript中的字符串是不可变的,也就是说,字符串一旦创建,它们的值就不能改变。要改变某个变量保存的字符串,首先要销毁原来的字符串,然后再用另一个包含新值的字符串填充该变量。</p>
-<h4 id="u8F6C_u6362_u4E3A_u5B57_u7B26_u4E32"><a href="#u8F6C_u6362_u4E3A_u5B57_u7B26_u4E32" class="headerlink" title="转换为字符串"></a>转换为字符串</h4><ol>
-<li>要把一个值转换为一个字符串有三种方式。第一种是使用几乎每个值都有的toString()方法，数值、布尔值、对象和字符串值都有 toString()方法。但null和undefined值没有这个方法。可以传递一个参数:输出数值的基数。默认情况下,toString()方法以十进制格式返回数值的字符串表示。</li>
-<li>在不知道要转换的值是不是null或undefined的情况下,还可以使用转型函数String(),这个函数能够将任何类型的值转换为字符串：<ul>
-<li>如果值有toString()方法,则调用该方法(没有参数)并返回相应的结果;</li>
-<li>如果值是 null,则返回”null”;</li>
-<li>如果值是 undefined,则返回”undefined”。</li>
-</ul>
-</li>
-<li>可以使用加号操作符把某个值转换为字符串。</li>
-</ol>
-<h3 id="1-2-7_Object_u7C7B_u578B"><a href="#1-2-7_Object_u7C7B_u578B" class="headerlink" title="1.2.7 Object类型"></a>1.2.7 Object类型</h3><p>&emsp;&emsp;ECMAScript中的对象其实就是一组数据和功能的集合。对象可以通过执行 new 操作符后跟要创建的对象类型的名称来创建。Object 类型是所有它的实例的基础，Object类型所具有的任何属性和方法也同样存在于更具体的对象中。<br>&emsp;&emsp;Object 的每个实例都具有下列属性和方法。</p>
-<ul>
-<li><strong>constructor</strong>:保存着用于创建当前对象的函数。对于前面的例子而言,构造函数(constructor) 8 就是 Object()。</li>
-<li><strong>hasOwnProperty(propertyName)</strong>:用于检查给定的属性在当前对象实例中(而不是在实例的原型中)是否存在。其中,作为参数的属性名(propertyName)必须以字符串形式指定(例 如:o.hasOwnProperty(“name”))。</li>
-<li><strong>isPrototypeOf(object)</strong>:用于检查传入的对象是否是传入对象的原型(第 5 章将讨论原 型)。</li>
-<li><strong>propertyIsEnumerable(propertyName)</strong>:用于检查给定的属性是否能够使用for-in语句(本章后面将会讨论)来枚举。与hasOwnProperty()方法一样,作为参数的属性名必须以字符<br>串形式指定。</li>
-<li><strong>toLocaleString()</strong>:返回对象的字符串表示,该字符串与执行环境的地区对应。</li>
-<li><strong>toString()</strong>:返回对象的字符串表示。</li>
-<li><strong>valueOf()</strong>:返回对象的字符串、数值或布尔值表示。通常与 toString()方法的返回值相同。</li>
-</ul>
-<h2 id="1-3__u64CD_u4F5C_u7B26"><a href="#1-3__u64CD_u4F5C_u7B26" class="headerlink" title="1.3 操作符"></a>1.3 操作符</h2><ol>
-<li>如果是 Infinity 与 0 相乘,则结果是 NaN;</li>
-<li>如果是 Infinity 被 Infinity 除,则结果是 NaN;</li>
-<li>如果是零被零除,则结果是 NaN;</li>
-<li>如果是+0 加-0,则结果是+0;</li>
-<li>如果是+0 减-0,则结果是0;</li>
-</ol>
-<h3 id="u76F8_u7B49_u64CD_u4F5C_u7B26_u5BF9_u6BD4"><a href="#u76F8_u7B49_u64CD_u4F5C_u7B26_u5BF9_u6BD4" class="headerlink" title="相等操作符对比"></a>相等操作符对比</h3><ul>
-<li>如果有一个操作数是布尔值,则在比较相等性之前先将其转换为数值——false 转换为 0,而true 转换为 1;</li>
-<li>如果一个操作数是字符串,另一个操作数是数值,在比较相等性之前先将字符串转换为数值;</li>
-<li>如果一个操作数是对象,另一个操作数不是,则调用对象的valueOf()方法,用得到的基本类型值按照前面的规则进行比较;</li>
-<li>null 和 undefined 是相等的。</li>
-<li>要比较相等性之前,不能将 null 和undefined转换成其他任何值。</li>
-<li>如果有一个操作数是NaN,则相等操作符返回false,而不相等操作符返回true。重要提示:即使两个操作数都是NaN,相等操作符也返回false;因为按照规则,NaN 不等于 NaN。</li>
-<li>如果两个操作数都是对象,则比较它们是不是同一个对象。如果两个操作数都指向同一个对象,则相等操作符返回 true;否则,返回 false;</li>
+<li>基本类型值在内存中占据固定大小的空间,因此被保存在栈内存中;</li>
+<li>从一个变量向另一个变量复制基本类型的值,会创建这个值的一个副本;</li>
+<li>引用类型的值是对象,保存在堆内存中;</li>
+<li>包含引用类型值的变量实际上包含的并不是对象本身,而是一个指向该对象的指针;</li>
+<li>从一个变量向另一个变量复制引用类型的值,复制的其实是指针,因此两个变量最终都指向同<br>一个对象;</li>
+<li>确定一个值是哪种基本类型可以使用 typeof 操作符,而确定一个值是哪种引用类型可以使用 instanceof 操作符。</li>
 </ul>
 
           

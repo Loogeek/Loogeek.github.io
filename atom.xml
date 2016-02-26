@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-02-24T15:24:14.000Z</updated>
+  <updated>2016-02-25T02:26:02.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,9 +15,45 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[第2章 变量、作用域和内存]]></title>
+    <link href="http://yoursite.com/2016/02/24/%E7%AC%AC2%E7%AB%A0-%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%86%85%E5%AD%98/"/>
+    <id>http://yoursite.com/2016/02/24/第2章-变量、作用域和内存/</id>
+    <published>2016-02-24T15:29:54.000Z</published>
+    <updated>2016-02-25T02:26:02.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="2-1__u57FA_u672C_u7C7B_u578B_u548C_u5F15_u7528_u7C7B_u578B_u7684_u503C"><a href="#2-1__u57FA_u672C_u7C7B_u578B_u548C_u5F15_u7528_u7C7B_u578B_u7684_u503C" class="headerlink" title="2.1 基本类型和引用类型的值"></a>2.1 基本类型和引用类型的值</h2><p>&emsp;&emsp;ECMAScript变量可能包含两种不同数据类型的值:基本类型值和引用类型值。基本类型值指的是简单的数据段,而引用类型值指那些可能由多个值构成的对象。<br>&emsp;&emsp;在将一个值赋给变量时,解析器必须确定这个值是基本类型值还是引用类型值。第3章讨论了5种基本数据类型:Undefined、Null、Boolean、Number和String。这5种基本数据类型是按值访问的,因为可以操作保存在变量中的实际的值。</p>
+<h3 id="2-1-1__u4F20_u9012_u53C2_u6570"><a href="#2-1-1__u4F20_u9012_u53C2_u6570" class="headerlink" title="2.1.1 传递参数"></a>2.1.1 传递参数</h3><p>&emsp;&emsp;ECMAScript 中所有函数的参数都是按值传递的。也就是说,把函数外部的值复制给函数内部的参 数,就和把值从一个变量复制到另一个变量一样。基本类型值的传递如同基本类型变量的复制一样,而 引用类型值的传递,则如同引用类型变量的复制一样。有不少开发人员在这一点上可能会感到困惑,因 为访问变量有按值和按引用两种方式,而参数只能按值传递。<br>&emsp;&emsp;在向参数传递基本类型的值时,被传递的值会被复制给一个局部变量(即命名参数,或者用 ECMAScript 的概念来说,就是 arguments 对象中的一个元素)。在向参数传递引用类型的值时,会把 这个值在内存中的地址复制给一个局部变量,因此这个局部变量的变化会反映在函数的外部。</p>
+<h3 id="2-1-2__u68C0_u6D4B_u7C7B_u578B"><a href="#2-1-2__u68C0_u6D4B_u7C7B_u578B" class="headerlink" title="2.1.2 检测类型"></a>2.1.2 检测类型</h3><p>&emsp;&emsp;要检测一个变量是不是基本数据类型?第 3 章介绍的 typeof 操作符是最佳的工具。说得更具体一 点,typeof 操作符是确定一个变量是字符串、数值、布尔值,还是 undefined 的最佳工具。如果变 量的值是一个对象或 null,则 typeof 操作符会像下面例子中所示的那样返回”object”。<br>&emsp;&emsp;可通过instanceof操作符来对引用类型进行检查<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">result = variable <span class="keyword">instanceof</span> constructor</span><br><span class="line">alert(person <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">// 变量 person 是 Object 吗?</span></span><br><span class="line">alert(colors <span class="keyword">instanceof</span> <span class="built_in">Array</span>);  <span class="comment">// 变量 colors 是 Array 吗?</span></span><br><span class="line">alert(patterninstanceofRegExp);  <span class="comment">//变量pattern是RegExp吗?</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;根据规定,所有引用类型的值都是 Object 的实例。因此,在检测一个引用类型值和Object构造函数时,instanceof 操作符始终会返回 true。当然,如果使用 instanceof 操作符检测基本类型的值,则该操作符始终会返回false,因为基本类型不是对象。</p>
+<h2 id="2-2__u6267_u884C_u73AF_u5883_u53CA_u4F5C_u7528_u57DF"><a href="#2-2__u6267_u884C_u73AF_u5883_u53CA_u4F5C_u7528_u57DF" class="headerlink" title="2.2 执行环境及作用域"></a>2.2 执行环境及作用域</h2><p>&emsp;&emsp;执行环境(execution context)是 JavaScript中最为重要的一个概念。执行环境定义了变量或函数有权访问的其他数据,决定了它们各自的行为。每个执行环境都有一个 与之关联的变量对象(variable object),环境中定义的所有变量和函数都保存在这个对象中。<br>&emsp;&emsp;每个函数都有自己的执行环境。当执行流进入一个函数时,函数的环境就会被推入一个环境栈中。而在函数执行之后,栈将其环境弹出,把控制权返回给之前的执行环境。ECMAScript 程序中的执行流正是由这个方便的机制控制着。<br>&emsp;&emsp;当代码在一个环境中执行时,会创建变量对象的一个作用域链(scope chain)。作用域链的用途,是 保证对执行环境有权访问的所有变量和函数的有序访问。作用域链的前端,始终都是当前执行的代码所在环境的变量对象。如果这个环境是函数,则将其活动对象(activation object)作为变量对象。活动对象在最开始时只包含一个变量,即arguments对象(这个对象在全局环境中是不存在的)。作用域链中的下一个变量对象来自包含(外部)环境,而再下一个变量对象则来自下一个包含环境。这样,一直延续到全局执行环境;全局执行环境的变量对象始终都是作用域链中的最后一个对象。</p>
+<h3 id="2-2-1__u5EF6_u957F_u4F5C_u7528_u57DF_u94FE"><a href="#2-2-1__u5EF6_u957F_u4F5C_u7528_u57DF_u94FE" class="headerlink" title="2.2.1 延长作用域链"></a>2.2.1 延长作用域链</h3><p>&emsp;&emsp;虽然执行环境的类型总共只有两种——全局和局部(函数)可通过下面语句在作用域链的前端临时增加一个变量对象来延长作用域链。</p>
+<ul>
+<li>try-catch 语句的 catch 块;</li>
+<li>with 语句。</li>
+</ul>
+<h2 id="2-3__u5783_u573E_u6536_u96C6"><a href="#2-3__u5783_u573E_u6536_u96C6" class="headerlink" title="2.3 垃圾收集"></a>2.3 垃圾收集</h2><p>&emsp;&emsp;JavaScript 具有自动垃圾收集机制,也就是说,执行环境会负责管理代码执行过程中使用的内存。</p>
+<h3 id="2-3-1__u6807_u8BB0_u6E05_u9664"><a href="#2-3-1__u6807_u8BB0_u6E05_u9664" class="headerlink" title="2.3.1 标记清除"></a>2.3.1 标记清除</h3><p>&emsp;&emsp;JavaScript 中最常用的垃圾收集方式是标记清除(mark-and-sweep)。垃圾收集器在运行的时候会给存储在内存中的所有变量都加上标记(当然,可以使用任何标记方式)。然后,它会去掉环境中的变量以及被环境中的变量引用的变量的标记。而在此之后再被加上标记的变量将被视为准备删除的变量,原因是环境中的变量已经无法访问到这些变量了。最后,垃圾收集器完成内存清除工作,销毁那些带标记的值并回收它们所占用的内存空间</p>
+<h3 id="2-3-2__u5F15_u7528_u8BA1_u6570"><a href="#2-3-2__u5F15_u7528_u8BA1_u6570" class="headerlink" title="2.3.2 引用计数"></a>2.3.2 引用计数</h3><p>&emsp;&emsp;另一种垃圾收集算法是“引用计数”,这种算法的思想是跟踪记录所有值被引用的次数。JavaScript<br>引擎目前都不再使用这种算法;但在 IE 中访问非原生 JavaScript 对象(如 DOM 元素)时,这种<br>   算法仍然可能会导致问题。</p>
+<h3 id="2-3-3__u7BA1_u7406_u5185_u5B58"><a href="#2-3-3__u7BA1_u7406_u5185_u5B58" class="headerlink" title="2.3.3 管理内存"></a>2.3.3 管理内存</h3><p>&emsp;&emsp;解除引用(dereferencing)不仅有助于消除循环引用现象,而且对垃圾收集也有好处。为了确保有效地回收内存,应该及时解除不再使用的全局对象、全局对象属性以及循环引用变量的引用。</p>
+<h2 id="2-4__u5C0F_u7ED3"><a href="#2-4__u5C0F_u7ED3" class="headerlink" title="2.4 小结"></a>2.4 小结</h2><p>&emsp;&emsp;JavaScript 变量可以用来保存两种类型的值:基本类型值和引用类型值。基本类型的值源自以下5种基本数据类型:Undefined、Null、Boolean、Number 和 String。基本类型值和引用类型值具 有以下特点:</p>
+<ul>
+<li>基本类型值在内存中占据固定大小的空间,因此被保存在栈内存中;</li>
+<li>从一个变量向另一个变量复制基本类型的值,会创建这个值的一个副本;</li>
+<li>引用类型的值是对象,保存在堆内存中;</li>
+<li>包含引用类型值的变量实际上包含的并不是对象本身,而是一个指向该对象的指针;</li>
+<li>从一个变量向另一个变量复制引用类型的值,复制的其实是指针,因此两个变量最终都指向同<br>一个对象;</li>
+<li>确定一个值是哪种基本类型可以使用 typeof 操作符,而确定一个值是哪种引用类型可以使用 instanceof 操作符。</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="2-1__u57FA_u672C_u7C7B_u578B_u548C_u5F15_u7528_u7C7B_u578B_u7684_u503C"><a href="#2-1__u57FA_u672C_u7C7B_u578B_u548C_u5F15_u7528_u7C]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[第1章 JavaScript基本语法]]></title>
-    <link href="http://yoursite.com/2016/02/24/%E7%AC%AC%E4%B8%80%E7%AB%A0%20JavaScript%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"/>
-    <id>http://yoursite.com/2016/02/24/第一章 JavaScript基本概念/</id>
+    <link href="http://yoursite.com/2016/02/24/%E7%AC%AC1%E7%AB%A0%20JavaScript%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"/>
+    <id>http://yoursite.com/2016/02/24/第1章 JavaScript基本概念/</id>
     <published>2016-02-24T15:24:14.000Z</published>
     <updated>2016-02-24T15:24:14.000Z</updated>
     <content type="html"><![CDATA[<h2 id="1-1__u6807_u8BC6_u7B26"><a href="#1-1__u6807_u8BC6_u7B26" class="headerlink" title="1.1 标识符"></a>1.1 标识符</h2><p>&emsp;&emsp;所谓标识符,就是指变量、函数、属性的名字,或者函数的参数。标识符可以是按照下列格式规则 组合起来的一或多个字符:</p>
@@ -144,28 +180,6 @@
 ]]></content>
     <summary type="html">
     <![CDATA[<h2 id="1-1__u6807_u8BC6_u7B26"><a href="#1-1__u6807_u8BC6_u7B26" class="headerlink" title="1.1 标识符"></a>1.1 标识符</h2><p>&emsp;&emsp;所谓标识符,就是]]>
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <link href="http://yoursite.com/2016/01/29/hello-world/"/>
-    <id>http://yoursite.com/2016/01/29/hello-world/</id>
-    <published>2016-01-29T13:46:57.000Z</published>
-    <updated>2016-01-29T12:36:26.000Z</updated>
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.]]>
     </summary>
     
   </entry>
