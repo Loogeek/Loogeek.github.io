@@ -61,38 +61,20 @@
 
 <meta name="description" content="XMLHttpRequestXMLHttpRequest Level 2 使用指南
 跨域资源共享 CORS 详解
-浏览器同源政策及其规避方法
-readyState属性值
-0:未初始化。尚未调用 open()方法。
-1:启动。已经调用 open()方法,但尚未调用 send()方法。
-2:发送。已经调用 send()方法,但尚未接收到响应。
-3:接收。已经接收到部分响应数据。
-4:完成。已经接收到全">
+浏览器同源政策及其规避方法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第10章 Ajax">
 <meta property="og:url" content="http://yoursite.com/2016/05/13/第10章 Ajax/index.html">
 <meta property="og:site_name" content="Loogeek's Blog">
 <meta property="og:description" content="XMLHttpRequestXMLHttpRequest Level 2 使用指南
 跨域资源共享 CORS 详解
-浏览器同源政策及其规避方法
-readyState属性值
-0:未初始化。尚未调用 open()方法。
-1:启动。已经调用 open()方法,但尚未调用 send()方法。
-2:发送。已经调用 send()方法,但尚未接收到响应。
-3:接收。已经接收到部分响应数据。
-4:完成。已经接收到全">
-<meta property="og:updated_time" content="2016-05-08T15:08:16.000Z">
+浏览器同源政策及其规避方法">
+<meta property="og:updated_time" content="2016-05-13T11:05:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第10章 Ajax">
 <meta name="twitter:description" content="XMLHttpRequestXMLHttpRequest Level 2 使用指南
 跨域资源共享 CORS 详解
-浏览器同源政策及其规避方法
-readyState属性值
-0:未初始化。尚未调用 open()方法。
-1:启动。已经调用 open()方法,但尚未调用 send()方法。
-2:发送。已经调用 send()方法,但尚未接收到响应。
-3:接收。已经接收到部分响应数据。
-4:完成。已经接收到全">
+浏览器同源政策及其规避方法">
 
 
 
@@ -291,7 +273,7 @@ readyState属性值
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-13T18:25:52+08:00" content="2016-05-13">
+            <time itemprop="dateCreated" datetime="2016-05-13T19:05:19+08:00" content="2016-05-13">
               2016-05-13
             </time>
           </span>
@@ -326,7 +308,7 @@ readyState属性值
       
         <h2 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h2><p><a href="http://www.ruanyifeng.com/blog/2012/09/xmlhttprequest_level_2.html" target="_blank" rel="external">XMLHttpRequest Level 2 使用指南</a></p>
 <p><a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="external">跨域资源共享 CORS 详解</a></p>
-<p><a href="http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html" target="_blank" rel="external">浏览器同源政策及其规避方法</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html" target="_blank" rel="external">浏览器同源政策及其规避方法</a><br><a id="more"></a></p>
 <h3 id="readyState_u5C5E_u6027_u503C"><a href="#readyState_u5C5E_u6027_u503C" class="headerlink" title="readyState属性值"></a>readyState属性值</h3><ul>
 <li>0:未初始化。尚未调用 open()方法。</li>
 <li>1:启动。已经调用 open()方法,但尚未调用 send()方法。</li>
@@ -336,7 +318,7 @@ readyState属性值
 </ul>
 <p>&emsp;&emsp; 只要 readyState 属性的值由一个值变成另一个值,都会触发一次 readystatechange 事件。可以利用这个事件来检测每次状态变化后 readyState 的值。通常,我们只对 readyState 值为 4 的阶 段感兴趣,因为这时所有数据都已经就绪。不过,必须在调用 open()之前指定 onreadystatechange 事件处理程序才能确保跨浏览器兼容性。在接收到响应之前还可以调用 abort()方法来取消异步请求，xhr.abort();<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span> ((xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span>) || xhr.status == <span class="number">304</span>)&#123;   </span><br><span class="line">         alert(xhr.responseText);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">         alert(<span class="string">"Request was unsuccessful: "</span> + xhr.status);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; &#125;;</span><br><span class="line">xhr.open(method, url, <span class="literal">true</span>); <span class="comment">// true代表异步</span></span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br></pre></td></tr></table></figure></p>
 <h3 id="GET_u8BF7_u6C42"><a href="#GET_u8BF7_u6C42" class="headerlink" title="GET请求"></a>GET请求</h3><p>&emsp;&emsp; 使用 GET 请求经常会发生的一个错误,就是查询字符串的格式有问题。查询字符串中每个参数的名 称和值都必须使用 encodeURIComponent()进行编码,然后才能放到 URL 的末尾;而且所有名-值对 儿都必须由和号(&amp;)分隔.下面这个函数可以辅助向现有 URL 的末尾添加查询字符串参数:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addURLParam</span>(<span class="params">url, name, value</span>) </span>&#123;</span><br><span class="line">  url += (url.indexOf(<span class="string">"?"</span>) == -<span class="number">1</span> ? <span class="string">"?"</span> : <span class="string">"&amp;"</span>);</span><br><span class="line">  url += <span class="built_in">encodeURIComponent</span>(name) + <span class="string">"="</span> + <span class="built_in">encodeURIComponent</span>(value);</span><br><span class="line">  <span class="keyword">return</span> url;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="POST_u8BF7_u6C42"><a href="#POST_u8BF7_u6C42" class="headerlink" title="POST请求"></a>POST请求</h3><p>&emsp;&emsp; 首先将 Content-Type 头部信息设置为 application/x-www-form-urlencoded,也就是表单 提交时的内容类型.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">submitData</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">  xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span> ((xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span>) || xhr.status == <span class="number">304</span>)&#123;</span><br><span class="line">            alert(xhr.responseText);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            alert(<span class="string">"Request was unsuccessful: "</span> + xhr.status);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  xhr.open(<span class="string">"post"</span>, <span class="string">"postexample.php"</span>, <span class="literal">true</span>);</span><br><span class="line">  xhr.setRequestHeader(<span class="string">"Content-Type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">  <span class="keyword">var</span> form = <span class="built_in">document</span>.getElementById(<span class="string">"user-info"</span>); </span><br><span class="line">  xhr.send(serialize(form));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="POST_u8BF7_u6C42"><a href="#POST_u8BF7_u6C42" class="headerlink" title="POST请求"></a>POST请求</h3><p>&emsp;&emsp; 首先将 Content-Type 头部信息设置为 application/x-www-form-urlencoded,也就是表单 提交时的内容类型.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">submitData</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">  xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span> ((xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span>) || xhr.status == <span class="number">304</span>)&#123;</span><br><span class="line">            alert(xhr.responseText);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            alert(<span class="string">"Request was unsuccessful: "</span> + xhr.status);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  xhr.open(<span class="string">"post"</span>, <span class="string">"postexample.php"</span>, <span class="literal">true</span>);</span><br><span class="line">  xhr.setRequestHeader(<span class="string">"Content-Type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">  <span class="keyword">var</span> form = <span class="built_in">document</span>.getElementById(<span class="string">"user-info"</span>);</span><br><span class="line">  xhr.send(serialize(form));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="XMLHttpRequest_2_u7EA7"><a href="#XMLHttpRequest_2_u7EA7" class="headerlink" title="XMLHttpRequest 2级"></a>XMLHttpRequest 2级</h2><p>&emsp;&emsp;老版本的XMLHttpRequest对象有以下几个缺点:</p>
 <ul>
 <li>只支持文本数据的传送，无法用来读取和上传二进制文件。</li>
@@ -381,17 +363,13 @@ readyState属性值
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/12/第3章 引用类型/" rel="next" title="第3章 引用类型">
-                <i class="fa fa-chevron-left"></i> 第3章 引用类型
+              <a href="/2016/05/13/第9章 DOM兼容性函数/" rel="next" title="第9章 DOM兼容性函数">
+                <i class="fa fa-chevron-left"></i> 第9章 DOM兼容性函数
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/13/第9章 DOM兼容性函数/" rel="prev" title="第9章 DOM兼容性函数">
-                第9章 DOM兼容性函数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

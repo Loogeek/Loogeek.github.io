@@ -59,24 +59,18 @@
 
 
 
-<meta name="description" content="&amp;emsp;&amp;emsp;DOM(文档对象模型)是针对 HTML 和 XML 文档的一个 API(应用程序编程接口)。DOM 描 绘了一个层次化的节点树,允许开发人员添加、移除和修改页面的某一部分。
-6.1 节点层次6.1.1 Node类型一、每个节点都具有的属性和方法
-childNodes:保存着一个 NodeList 对象。NodeList 是一种类数组对象,是基于 DOM 结构动态执行查询的结">
+<meta name="description" content="&amp;emsp;&amp;emsp;DOM(文档对象模型)是针对 HTML 和 XML 文档的一个 API(应用程序编程接口)。DOM 描绘了一个层次化的节点树,允许开发人员添加、移除和修改页面的某一部分。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第6章 DOM">
 <meta property="og:url" content="http://yoursite.com/2016/05/13/第6章 DOM/index.html">
 <meta property="og:site_name" content="Loogeek's Blog">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;DOM(文档对象模型)是针对 HTML 和 XML 文档的一个 API(应用程序编程接口)。DOM 描 绘了一个层次化的节点树,允许开发人员添加、移除和修改页面的某一部分。
-6.1 节点层次6.1.1 Node类型一、每个节点都具有的属性和方法
-childNodes:保存着一个 NodeList 对象。NodeList 是一种类数组对象,是基于 DOM 结构动态执行查询的结">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;DOM(文档对象模型)是针对 HTML 和 XML 文档的一个 API(应用程序编程接口)。DOM 描绘了一个层次化的节点树,允许开发人员添加、移除和修改页面的某一部分。">
 <meta property="og:image" content="https://raw.githubusercontent.com/Loogeek/Loogeek.github.io/7d8c6f70a40f0382a0d58695d72ce95559ee6e3d/images/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E7%AC%AC6%E7%AB%A0%20DOM/1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Loogeek/Loogeek.github.io/7d8c6f70a40f0382a0d58695d72ce95559ee6e3d/images/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E7%AC%AC6%E7%AB%A0%20DOM/2.png">
-<meta property="og:updated_time" content="2016-05-13T10:51:35.000Z">
+<meta property="og:updated_time" content="2016-05-13T11:04:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第6章 DOM">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;DOM(文档对象模型)是针对 HTML 和 XML 文档的一个 API(应用程序编程接口)。DOM 描 绘了一个层次化的节点树,允许开发人员添加、移除和修改页面的某一部分。
-6.1 节点层次6.1.1 Node类型一、每个节点都具有的属性和方法
-childNodes:保存着一个 NodeList 对象。NodeList 是一种类数组对象,是基于 DOM 结构动态执行查询的结">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;DOM(文档对象模型)是针对 HTML 和 XML 文档的一个 API(应用程序编程接口)。DOM 描绘了一个层次化的节点树,允许开发人员添加、移除和修改页面的某一部分。">
 
 
 
@@ -275,7 +269,7 @@ childNodes:保存着一个 NodeList 对象。NodeList 是一种类数组对象,�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-13T18:51:35+08:00" content="2016-05-13">
+            <time itemprop="dateCreated" datetime="2016-05-13T19:04:20+08:00" content="2016-05-13">
               2016-05-13
             </time>
           </span>
@@ -308,7 +302,7 @@ childNodes:保存着一个 NodeList 对象。NodeList 是一种类数组对象,�
       
 
       
-        <p>&emsp;&emsp;DOM(文档对象模型)是针对 HTML 和 XML 文档的一个 API(应用程序编程接口)。DOM 描 绘了一个层次化的节点树,允许开发人员添加、移除和修改页面的某一部分。</p>
+        <p>&emsp;&emsp;DOM(文档对象模型)是针对 HTML 和 XML 文档的一个 API(应用程序编程接口)。DOM 描绘了一个层次化的节点树,允许开发人员添加、移除和修改页面的某一部分。<br><a id="more"></a></p>
 <h2 id="6-1__u8282_u70B9_u5C42_u6B21"><a href="#6-1__u8282_u70B9_u5C42_u6B21" class="headerlink" title="6.1 节点层次"></a>6.1 节点层次</h2><h3 id="6-1-1_Node_u7C7B_u578B"><a href="#6-1-1_Node_u7C7B_u578B" class="headerlink" title="6.1.1 Node类型"></a>6.1.1 Node类型</h3><h5 id="u4E00_u3001_u6BCF_u4E2A_u8282_u70B9_u90FD_u5177_u6709_u7684_u5C5E_u6027_u548C_u65B9_u6CD5"><a href="#u4E00_u3001_u6BCF_u4E2A_u8282_u70B9_u90FD_u5177_u6709_u7684_u5C5E_u6027_u548C_u65B9_u6CD5" class="headerlink" title="一、每个节点都具有的属性和方法"></a>一、每个节点都具有的属性和方法</h5><ol>
 <li><strong>childNodes</strong>:保存着一个 NodeList 对象。NodeList 是一种类数组对象,是基于 DOM 结构动态执行查询的结果, DOM 结构的变化能够自动反映 在 NodeList 对象中;</li>
 <li><strong>parentNode</strong>:指向文档树中的父节点。 previousSibling 指向上一个同胞节点，nextSibling 指向下一个同胞节点。firstChild 指向第一个子节点，lastChild 指向最后一个子节点;</li>
@@ -410,16 +404,16 @@ childNodes:保存着一个 NodeList 对象。NodeList 是一种类数组对象,�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/13/第8章 事件/" rel="next" title="第8章 事件">
-                <i class="fa fa-chevron-left"></i> 第8章 事件
+              <a href="/2016/05/13/第5章 函数表达式/" rel="next" title="第5章 函数表达式">
+                <i class="fa fa-chevron-left"></i> 第5章 函数表达式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/05/13/第1章 JavaScript基本概念/" rel="prev" title="第1章 JavaScript基本语法">
-                第1章 JavaScript基本语法 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/05/13/第7章 DOM2和DOM3/" rel="prev" title="第7章 DOM2和DOM3">
+                第7章 DOM2和DOM3 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

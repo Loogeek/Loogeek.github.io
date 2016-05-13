@@ -66,7 +66,7 @@
 <meta property="og:site_name" content="Loogeek's Blog">
 <meta property="og:description" content="第5章 函数表达式5.1 闭包闭包： 是指有权访问另一个函数作用域中的自由变量的函数。创建闭包的常见方式,就是在一个函数内部创建另一个函数。12345678910111213 function createComparisonFunction(propertyName) &amp;#123;  return function(object1, object2)&amp;#123;    var value1 =">
 <meta property="og:image" content="https://raw.githubusercontent.com/Loogeek/Loogeek.github.io/7d8c6f70a40f0382a0d58695d72ce95559ee6e3d/images/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E7%AC%AC5%E7%AB%A0%20%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/1.png">
-<meta property="og:updated_time" content="2016-05-13T10:38:39.000Z">
+<meta property="og:updated_time" content="2016-05-13T11:04:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第5章 函数表达式">
 <meta name="twitter:description" content="第5章 函数表达式5.1 闭包闭包： 是指有权访问另一个函数作用域中的自由变量的函数。创建闭包的常见方式,就是在一个函数内部创建另一个函数。12345678910111213 function createComparisonFunction(propertyName) &amp;#123;  return function(object1, object2)&amp;#123;    var value1 =">
@@ -268,7 +268,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-13T18:38:39+08:00" content="2016-05-13">
+            <time itemprop="dateCreated" datetime="2016-05-13T19:04:08+08:00" content="2016-05-13">
               2016-05-13
             </time>
           </span>
@@ -302,6 +302,7 @@
 
       
         <h1 id="u7B2C5_u7AE0__u51FD_u6570_u8868_u8FBE_u5F0F"><a href="#u7B2C5_u7AE0__u51FD_u6570_u8868_u8FBE_u5F0F" class="headerlink" title="第5章 函数表达式"></a>第5章 函数表达式</h1><h2 id="5-1__u95ED_u5305"><a href="#5-1__u95ED_u5305" class="headerlink" title="5.1 闭包"></a>5.1 闭包</h2><p><strong>闭包：</strong> 是指有权访问另一个函数作用域中的自由变量的函数。创建闭包的常见方式,就是在一个函数内部创建另一个函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">createComparisonFunction</span>(<span class="params">propertyName</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">object1, object2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> value1 = object1[propertyName];</span><br><span class="line">    <span class="keyword">var</span> value2 = object2[propertyName];</span><br><span class="line">    <span class="keyword">if</span> (value1 &lt; value2)&#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (value1 &gt; value2)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>&emsp;&emsp;当某个函数被调用时,会创建一个执行环境(execution context)及相应的作用域链。然后,使用 arguments和其他命名参数的值来初始化函数的活动对象(activation object)。</p>
 <div style="text-align:center;margin-bottom:20px;"><br>  <img src="https://raw.githubusercontent.com/Loogeek/Loogeek.github.io/7d8c6f70a40f0382a0d58695d72ce95559ee6e3d/images/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E7%AC%AC5%E7%AB%A0%20%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/1.png" width="500"><br></div>
 
@@ -319,16 +320,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/13/第9章 DOM兼容性函数/" rel="next" title="第9章 DOM兼容性函数">
-                <i class="fa fa-chevron-left"></i> 第9章 DOM兼容性函数
+              <a href="/2016/05/13/第4章 面向对象的程序设计/" rel="next" title="第4章 面向对象的程序设计">
+                <i class="fa fa-chevron-left"></i> 第4章 面向对象的程序设计
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/05/13/第4章 面向对象的程序设计/" rel="prev" title="第4章 面向对象的程序设计">
-                第4章 面向对象的程序设计 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/05/13/第6章 DOM/" rel="prev" title="第6章 DOM">
+                第6章 DOM <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

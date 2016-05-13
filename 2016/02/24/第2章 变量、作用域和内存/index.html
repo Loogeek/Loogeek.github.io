@@ -67,7 +67,7 @@
 <meta property="og:site_name" content="Loogeek's Blog">
 <meta property="og:description" content="2.1 基本类型和引用类型的值&amp;emsp;&amp;emsp;ECMAScript变量包含两种不同数据类型的值:基本类型值和引用类型值。基本类型值指的是简单的数据段,而引用类型值指那些可能由多个值构成的对象。
 &amp;emsp;&amp;emsp;在将一个值赋给变量时,解析器必须确定这个值是基本类型值还是引用类型值。第3章讨论了5种基本数据类型:Undefined、Null、Boolean、Number和String。">
-<meta property="og:updated_time" content="2016-05-05T04:25:46.000Z">
+<meta property="og:updated_time" content="2016-05-13T11:03:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第2章 变量、作用域和内存">
 <meta name="twitter:description" content="2.1 基本类型和引用类型的值&amp;emsp;&amp;emsp;ECMAScript变量包含两种不同数据类型的值:基本类型值和引用类型值。基本类型值指的是简单的数据段,而引用类型值指那些可能由多个值构成的对象。
@@ -305,6 +305,7 @@
       
         <h2 id="2-1__u57FA_u672C_u7C7B_u578B_u548C_u5F15_u7528_u7C7B_u578B_u7684_u503C"><a href="#2-1__u57FA_u672C_u7C7B_u578B_u548C_u5F15_u7528_u7C7B_u578B_u7684_u503C" class="headerlink" title="2.1 基本类型和引用类型的值"></a>2.1 基本类型和引用类型的值</h2><p>&emsp;&emsp;ECMAScript变量包含两种不同数据类型的值:基本类型值和引用类型值。基本类型值指的是简单的数据段,而引用类型值指那些可能由多个值构成的对象。</p>
 <p>&emsp;&emsp;在将一个值赋给变量时,解析器必须确定这个值是基本类型值还是引用类型值。第3章讨论了5种基本数据类型:Undefined、Null、Boolean、Number和String。这5种基本数据类型是按值访问的,因为可以操作保存在变量中的实际的值。</p>
+<a id="more"></a>
 <h3 id="2-1-1__u4F20_u9012_u53C2_u6570"><a href="#2-1-1__u4F20_u9012_u53C2_u6570" class="headerlink" title="2.1.1 传递参数"></a>2.1.1 传递参数</h3><p>&emsp;&emsp;ECMAScript 中所有函数的参数都是按值传递的。也就是说,把函数外部的值复制给函数内部的参 数,就和把值从一个变量复制到另一个变量一样。基本类型值的传递如同基本类型变量的复制一样,而 引用类型值的传递,则如同引用类型变量的复制一样。有不少开发人员在这一点上可能会感到困惑,因 为访问变量有按值和按引用两种方式,而参数只能按值传递。</p>
 <p>&emsp;&emsp;在向参数传递基本类型的值时,被传递的值会被复制给一个局部变量(即命名参数,或者用 ECMAScript 的概念来说,就是 arguments 对象中的一个元素)。在向参数传递引用类型的值时,会把 这个值在内存中的地址复制给一个局部变量,因此这个局部变量的变化会反映在函数的外部。</p>
 <h3 id="2-1-2__u68C0_u6D4B_u7C7B_u578B"><a href="#2-1-2__u68C0_u6D4B_u7C7B_u578B" class="headerlink" title="2.1.2 检测类型"></a>2.1.2 检测类型</h3><p>&emsp;&emsp;要检测一个变量是不是基本数据类型? typeof 操作符是最佳的工具。说得更具体一 点,typeof 操作符是确定一个变量是字符串、数值、布尔值,还是 undefined 的最佳工具。如果变 量的值是一个对象或 null,则 typeof 操作符会像下面例子中所示的那样返回”object”。</p>
