@@ -1,0 +1,812 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Loogeek's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/Loogeek.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="XMLHttpRequestXMLHttpRequest Level 2 使用指南
+跨域资源共享 CORS 详解
+浏览器同源政策及其规避方法
+readyState属性值
+0:未初始化。尚未调用 open()方法。
+1:启动。已经调用 open()方法,但尚未调用 send()方法。
+2:发送。已经调用 send()方法,但尚未接收到响应。
+3:接收。已经接收到部分响应数据。
+4:完成。已经接收到全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第10章 Ajax">
+<meta property="og:url" content="http://yoursite.com/2016/05/13/第10章 Ajax/index.html">
+<meta property="og:site_name" content="Loogeek's Blog">
+<meta property="og:description" content="XMLHttpRequestXMLHttpRequest Level 2 使用指南
+跨域资源共享 CORS 详解
+浏览器同源政策及其规避方法
+readyState属性值
+0:未初始化。尚未调用 open()方法。
+1:启动。已经调用 open()方法,但尚未调用 send()方法。
+2:发送。已经调用 send()方法,但尚未接收到响应。
+3:接收。已经接收到部分响应数据。
+4:完成。已经接收到全">
+<meta property="og:updated_time" content="2016-05-08T15:08:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第10章 Ajax">
+<meta name="twitter:description" content="XMLHttpRequestXMLHttpRequest Level 2 使用指南
+跨域资源共享 CORS 详解
+浏览器同源政策及其规避方法
+readyState属性值
+0:未初始化。尚未调用 open()方法。
+1:启动。已经调用 open()方法,但尚未调用 send()方法。
+2:发送。已经调用 send()方法,但尚未接收到响应。
+3:接收。已经接收到部分响应数据。
+4:完成。已经接收到全">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 第10章 Ajax | Loogeek's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?dfd4b30a94ecef98966502e6a0f9a2aa";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Loogeek's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'MJsdyWuttzQYHhmzAu9o','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                第10章 Ajax
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-13T18:25:52+08:00" content="2016-05-13">
+              2016-05-13
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/13/第10章 Ajax/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/13/第10章 Ajax/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h2><p><a href="http://www.ruanyifeng.com/blog/2012/09/xmlhttprequest_level_2.html" target="_blank" rel="external">XMLHttpRequest Level 2 使用指南</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="external">跨域资源共享 CORS 详解</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html" target="_blank" rel="external">浏览器同源政策及其规避方法</a></p>
+<h3 id="readyState_u5C5E_u6027_u503C"><a href="#readyState_u5C5E_u6027_u503C" class="headerlink" title="readyState属性值"></a>readyState属性值</h3><ul>
+<li>0:未初始化。尚未调用 open()方法。</li>
+<li>1:启动。已经调用 open()方法,但尚未调用 send()方法。</li>
+<li>2:发送。已经调用 send()方法,但尚未接收到响应。</li>
+<li>3:接收。已经接收到部分响应数据。</li>
+<li>4:完成。已经接收到全部响应数据,而且已经可以在客户端使用了。</li>
+</ul>
+<p>&emsp;&emsp; 只要 readyState 属性的值由一个值变成另一个值,都会触发一次 readystatechange 事件。可以利用这个事件来检测每次状态变化后 readyState 的值。通常,我们只对 readyState 值为 4 的阶 段感兴趣,因为这时所有数据都已经就绪。不过,必须在调用 open()之前指定 onreadystatechange 事件处理程序才能确保跨浏览器兼容性。在接收到响应之前还可以调用 abort()方法来取消异步请求，xhr.abort();<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span> ((xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span>) || xhr.status == <span class="number">304</span>)&#123;   </span><br><span class="line">         alert(xhr.responseText);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">         alert(<span class="string">"Request was unsuccessful: "</span> + xhr.status);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; &#125;;</span><br><span class="line">xhr.open(method, url, <span class="literal">true</span>); <span class="comment">// true代表异步</span></span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br></pre></td></tr></table></figure></p>
+<h3 id="GET_u8BF7_u6C42"><a href="#GET_u8BF7_u6C42" class="headerlink" title="GET请求"></a>GET请求</h3><p>&emsp;&emsp; 使用 GET 请求经常会发生的一个错误,就是查询字符串的格式有问题。查询字符串中每个参数的名 称和值都必须使用 encodeURIComponent()进行编码,然后才能放到 URL 的末尾;而且所有名-值对 儿都必须由和号(&amp;)分隔.下面这个函数可以辅助向现有 URL 的末尾添加查询字符串参数:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addURLParam</span>(<span class="params">url, name, value</span>) </span>&#123;</span><br><span class="line">  url += (url.indexOf(<span class="string">"?"</span>) == -<span class="number">1</span> ? <span class="string">"?"</span> : <span class="string">"&amp;"</span>);</span><br><span class="line">  url += <span class="built_in">encodeURIComponent</span>(name) + <span class="string">"="</span> + <span class="built_in">encodeURIComponent</span>(value);</span><br><span class="line">  <span class="keyword">return</span> url;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="POST_u8BF7_u6C42"><a href="#POST_u8BF7_u6C42" class="headerlink" title="POST请求"></a>POST请求</h3><p>&emsp;&emsp; 首先将 Content-Type 头部信息设置为 application/x-www-form-urlencoded,也就是表单 提交时的内容类型.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">submitData</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">  xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span> ((xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span>) || xhr.status == <span class="number">304</span>)&#123;</span><br><span class="line">            alert(xhr.responseText);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            alert(<span class="string">"Request was unsuccessful: "</span> + xhr.status);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  xhr.open(<span class="string">"post"</span>, <span class="string">"postexample.php"</span>, <span class="literal">true</span>);</span><br><span class="line">  xhr.setRequestHeader(<span class="string">"Content-Type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">  <span class="keyword">var</span> form = <span class="built_in">document</span>.getElementById(<span class="string">"user-info"</span>); </span><br><span class="line">  xhr.send(serialize(form));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="XMLHttpRequest_2_u7EA7"><a href="#XMLHttpRequest_2_u7EA7" class="headerlink" title="XMLHttpRequest 2级"></a>XMLHttpRequest 2级</h2><p>&emsp;&emsp;老版本的XMLHttpRequest对象有以下几个缺点:</p>
+<ul>
+<li>只支持文本数据的传送，无法用来读取和上传二进制文件。</li>
+<li>传送和接收数据时，没有进度信息，只能提示有没有完成。</li>
+<li>受到”同域限制”（Same Origin Policy），只能向同一域名的服务器请求数据。</li>
+</ul>
+<p>&emsp;&emsp;新版本的XMLHttpRequest对象，针对老版本的缺点，做出了大幅改进</p>
+<ul>
+<li>可以设置HTTP请求的时限。</li>
+<li>可以使用FormData对象管理表单数据。</li>
+<li>可以上传文件。</li>
+<li>可以请求不同域名下的数据（跨域请求）。</li>
+<li>可以获取服务器端的二进制数据。</li>
+<li>可以获得数据传输的进度信息。</li>
+<li>跨域资源共享（CORS）</li>
+</ul>
+<h3 id="FormData"><a href="#FormData" class="headerlink" title="FormData"></a>FormData</h3><p>&emsp;&emsp;现代 Web 应用中频繁使用的一项功能就是表单数据的序列化,XMLHttpRequest 2 级为此定义了 FormData 类型。FormData 为序列化表单以及创建与表单格式相同的数据(用于通过 XHR 传输)提供 了便利。append()方法接收两个参数:键和值,分别对应表单字段的名字和字段中包含的值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>)&#123;</span><br><span class="line">      <span class="keyword">if</span> ((xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span>) || xhr.status == <span class="number">304</span>)&#123;</span><br><span class="line">          alert(xhr.responseText);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      alert(<span class="string">"Request was unsuccessful: "</span> + xhr.status);</span><br><span class="line">    &#125;         </span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">xhr.open(<span class="string">"post"</span>,<span class="string">"postexample.php"</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="keyword">var</span> form = <span class="built_in">document</span>.getElementById(<span class="string">"user-info"</span>);</span><br><span class="line">xhr.send(<span class="keyword">new</span> FormData(form));</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;使用 FormData 的方便之处体现在不必明确地在 XHR 对象上设置请求头部。XHR 对象能够识别传入的数据类型是 FormData 的实例,并配置适当的头部信息。</p>
+<h2 id="u8DE8_u6E90_u8D44_u6E90_u5171_u4EAB"><a href="#u8DE8_u6E90_u8D44_u6E90_u5171_u4EAB" class="headerlink" title="跨源资源共享"></a>跨源资源共享</h2><p>&emsp;&emsp; 通过 XHR 实现 Ajax 通信的一个主要限制,来源于跨域安全策略。默认情况下,XHR 对象只能访 问与包含它的页面位于同一个域中的资源。这种安全策略可以预防某些恶意行为。</p>
+<p>&emsp;&emsp;CORS(Cross-Origin Resource Sharing,跨源资源共享),CORS 背后的基本思想,就是使用自定义的 HTTP 头部让浏览器与服务器进行沟通,从而决定请求或响应是应该成功,还是应该失败。</p>
+<p>&emsp;&emsp;比如一个简单的使用 GET 或 POST 发送的请求,它没有自定义的头部,而主体内容是 text/plain。在 发送该请求时,需要给它附加一个额外的 Origin 头部,其中包含请求页面的源信息(协议、域名和端 口),以便服务器根据这个头部信息来决定是否给予响应。下面是 Origin 头部的一个示例:<br>Origin: <a href="http://www.nczonline.net" target="_blank" rel="external">http://www.nczonline.net</a><br>如果服务器认为这个请求可以接受,就在 Access-Control-Allow-Origin 头部中回发相同的源<br>信息(如果是公共资源,可以回发”*“)。例如:<br>    Access-Control-Allow-Origin: <a href="http://www.nczonline.net" target="_blank" rel="external">http://www.nczonline.net</a><br>如果没有这个头部,或者有这个头部但源信息不匹配,浏览器就会驳回请求。正常情况下,浏览器 会处理请求。注意,请求和响应都不包含 cookie 信息。</p>
+<h3 id="IE_u5BF9CORS_u7684_u5B9E_u73B0"><a href="#IE_u5BF9CORS_u7684_u5B9E_u73B0" class="headerlink" title="IE对CORS的实现"></a>IE对CORS的实现</h3><p>&emsp;&emsp;微软在 IE8 中引入了 XDR(XDomainRequest)类型。 XDR 与 XHR 的一些不同之 处。</p>
+<ul>
+<li>cookie 不会随请求发送,也不会随响应返回。</li>
+<li>只能设置请求头部信息中的 Content-Type 字段。</li>
+<li>不能访问响应头部信息。</li>
+<li>只支持GET和POST请求。</li>
+</ul>
+<h3 id="u540C_u6E90_u7B56_u7565_u7684_u76EE_u7684"><a href="#u540C_u6E90_u7B56_u7565_u7684_u76EE_u7684" class="headerlink" title="同源策略的目的"></a>同源策略的目的</h3><p>&emsp;&emsp;同源政策的目的，是为了保证用户信息的安全，防止恶意的网站窃取数据。</p>
+<h2 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h2><p>&emsp;&emsp;WebSocket是HTML5开始提供的一种在单个 TCP 连接上进行全双工通讯的协议。在WebSocket API中，浏览器和服务器只需要做一个握手的动作，然后，浏览器和服务器之间就形成了一条快速通道。两者之间就直接可以数据互相传送。</p>
+<h3 id="u4F18_u70B9"><a href="#u4F18_u70B9" class="headerlink" title="优点"></a>优点</h3><p>&emsp;&emsp;服务器与客户端之间交换的数据包档头很小，大概只有2字节。（早期版本7.0）</p>
+<p>&emsp;&emsp;服务器可以主动传送数据给客户端。</p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/12/第3章 引用类型/" rel="next" title="第3章 引用类型">
+                <i class="fa fa-chevron-left"></i> 第3章 引用类型
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/13/第1章 JavaScript基本概念/" rel="prev" title="第1章 JavaScript基本语法">
+                第1章 JavaScript基本语法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/13/第10章 Ajax/"
+           data-title="第10章 Ajax" data-url="http://yoursite.com/2016/05/13/第10章 Ajax/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/Loogeek.png"
+               alt="Loogeek" />
+          <p class="site-author-name" itemprop="name">Loogeek</p>
+          <p class="site-description motion-element" itemprop="description">心之所向 素履以往</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Loogeek" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/2883344217" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#XMLHttpRequest"><span class="nav-number">1.</span> <span class="nav-text">XMLHttpRequest</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#readyState_u5C5E_u6027_u503C"><span class="nav-number">1.1.</span> <span class="nav-text">readyState属性值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GET_u8BF7_u6C42"><span class="nav-number">1.2.</span> <span class="nav-text">GET请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POST_u8BF7_u6C42"><span class="nav-number">1.3.</span> <span class="nav-text">POST请求</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XMLHttpRequest_2_u7EA7"><span class="nav-number">2.</span> <span class="nav-text">XMLHttpRequest 2级</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#FormData"><span class="nav-number">2.1.</span> <span class="nav-text">FormData</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u8DE8_u6E90_u8D44_u6E90_u5171_u4EAB"><span class="nav-number">3.</span> <span class="nav-text">跨源资源共享</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IE_u5BF9CORS_u7684_u5B9E_u73B0"><span class="nav-number">3.1.</span> <span class="nav-text">IE对CORS的实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u540C_u6E90_u7B56_u7565_u7684_u76EE_u7684"><span class="nav-number">3.2.</span> <span class="nav-text">同源策略的目的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebSocket"><span class="nav-number">4.</span> <span class="nav-text">WebSocket</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u4F18_u70B9"><span class="nav-number">4.1.</span> <span class="nav-text">优点</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Loogeek</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"Loogeek"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+</body>
+</html>

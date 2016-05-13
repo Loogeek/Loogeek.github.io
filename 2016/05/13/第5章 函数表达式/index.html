@@ -59,19 +59,17 @@
 
 
 
-<meta name="description" content="2.1 基本类型和引用类型的值&amp;emsp;&amp;emsp;ECMAScript变量包含两种不同数据类型的值:基本类型值和引用类型值。基本类型值指的是简单的数据段,而引用类型值指那些可能由多个值构成的对象。
-&amp;emsp;&amp;emsp;在将一个值赋给变量时,解析器必须确定这个值是基本类型值还是引用类型值。第3章讨论了5种基本数据类型:Undefined、Null、Boolean、Number和String。">
+<meta name="description" content="第5章 函数表达式5.1 闭包闭包： 是指有权访问另一个函数作用域中的自由变量的函数。创建闭包的常见方式,就是在一个函数内部创建另一个函数。12345678910111213 function createComparisonFunction(propertyName) &amp;#123;  return function(object1, object2)&amp;#123;    var value1 =">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第2章 变量、作用域和内存">
-<meta property="og:url" content="http://yoursite.com/2016/02/24/第2章 变量、作用域和内存/index.html">
+<meta property="og:title" content="Loogeek's Blog">
+<meta property="og:url" content="http://yoursite.com/2016/05/13/第5章 函数表达式/index.html">
 <meta property="og:site_name" content="Loogeek's Blog">
-<meta property="og:description" content="2.1 基本类型和引用类型的值&amp;emsp;&amp;emsp;ECMAScript变量包含两种不同数据类型的值:基本类型值和引用类型值。基本类型值指的是简单的数据段,而引用类型值指那些可能由多个值构成的对象。
-&amp;emsp;&amp;emsp;在将一个值赋给变量时,解析器必须确定这个值是基本类型值还是引用类型值。第3章讨论了5种基本数据类型:Undefined、Null、Boolean、Number和String。">
-<meta property="og:updated_time" content="2016-05-05T04:25:46.000Z">
+<meta property="og:description" content="第5章 函数表达式5.1 闭包闭包： 是指有权访问另一个函数作用域中的自由变量的函数。创建闭包的常见方式,就是在一个函数内部创建另一个函数。12345678910111213 function createComparisonFunction(propertyName) &amp;#123;  return function(object1, object2)&amp;#123;    var value1 =">
+<meta property="og:image" content="http://yoursite.com/../images/JavaScript高级程序设计/第5章 函数表达式/1.png">
+<meta property="og:updated_time" content="2016-05-07T02:56:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第2章 变量、作用域和内存">
-<meta name="twitter:description" content="2.1 基本类型和引用类型的值&amp;emsp;&amp;emsp;ECMAScript变量包含两种不同数据类型的值:基本类型值和引用类型值。基本类型值指的是简单的数据段,而引用类型值指那些可能由多个值构成的对象。
-&amp;emsp;&amp;emsp;在将一个值赋给变量时,解析器必须确定这个值是基本类型值还是引用类型值。第3章讨论了5种基本数据类型:Undefined、Null、Boolean、Number和String。">
+<meta name="twitter:title" content="Loogeek's Blog">
+<meta name="twitter:description" content="第5章 函数表达式5.1 闭包闭包： 是指有权访问另一个函数作用域中的自由变量的函数。创建闭包的常见方式,就是在一个函数内部创建另一个函数。12345678910111213 function createComparisonFunction(propertyName) &amp;#123;  return function(object1, object2)&amp;#123;    var value1 =">
 
 
 
@@ -89,7 +87,7 @@
   };
 </script>
 
-  <title> 第2章 变量、作用域和内存 | Loogeek's Blog </title>
+  <title>  | Loogeek's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -258,7 +256,7 @@
             
             
               
-                第2章 变量、作用域和内存
+                
               
             
           </h1>
@@ -270,8 +268,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-02-24T23:29:54+08:00" content="2016-02-24">
-              2016-02-24
+            <time itemprop="dateCreated" datetime="2016-05-13T18:25:52+08:00" content="2016-05-13">
+              2016-05-13
             </time>
           </span>
 
@@ -281,8 +279,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/02/24/第2章 变量、作用域和内存/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/24/第2章 变量、作用域和内存/" itemprop="commentsCount"></span>
+                <a href="/2016/05/13/第5章 函数表达式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/13/第5章 函数表达式/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -303,34 +301,13 @@
       
 
       
-        <h2 id="2-1__u57FA_u672C_u7C7B_u578B_u548C_u5F15_u7528_u7C7B_u578B_u7684_u503C"><a href="#2-1__u57FA_u672C_u7C7B_u578B_u548C_u5F15_u7528_u7C7B_u578B_u7684_u503C" class="headerlink" title="2.1 基本类型和引用类型的值"></a>2.1 基本类型和引用类型的值</h2><p>&emsp;&emsp;ECMAScript变量包含两种不同数据类型的值:基本类型值和引用类型值。基本类型值指的是简单的数据段,而引用类型值指那些可能由多个值构成的对象。</p>
-<p>&emsp;&emsp;在将一个值赋给变量时,解析器必须确定这个值是基本类型值还是引用类型值。第3章讨论了5种基本数据类型:Undefined、Null、Boolean、Number和String。这5种基本数据类型是按值访问的,因为可以操作保存在变量中的实际的值。</p>
-<h3 id="2-1-1__u4F20_u9012_u53C2_u6570"><a href="#2-1-1__u4F20_u9012_u53C2_u6570" class="headerlink" title="2.1.1 传递参数"></a>2.1.1 传递参数</h3><p>&emsp;&emsp;ECMAScript 中所有函数的参数都是按值传递的。也就是说,把函数外部的值复制给函数内部的参 数,就和把值从一个变量复制到另一个变量一样。基本类型值的传递如同基本类型变量的复制一样,而 引用类型值的传递,则如同引用类型变量的复制一样。有不少开发人员在这一点上可能会感到困惑,因 为访问变量有按值和按引用两种方式,而参数只能按值传递。</p>
-<p>&emsp;&emsp;在向参数传递基本类型的值时,被传递的值会被复制给一个局部变量(即命名参数,或者用 ECMAScript 的概念来说,就是 arguments 对象中的一个元素)。在向参数传递引用类型的值时,会把 这个值在内存中的地址复制给一个局部变量,因此这个局部变量的变化会反映在函数的外部。</p>
-<h3 id="2-1-2__u68C0_u6D4B_u7C7B_u578B"><a href="#2-1-2__u68C0_u6D4B_u7C7B_u578B" class="headerlink" title="2.1.2 检测类型"></a>2.1.2 检测类型</h3><p>&emsp;&emsp;要检测一个变量是不是基本数据类型? typeof 操作符是最佳的工具。说得更具体一 点,typeof 操作符是确定一个变量是字符串、数值、布尔值,还是 undefined 的最佳工具。如果变 量的值是一个对象或 null,则 typeof 操作符会像下面例子中所示的那样返回”object”。</p>
-<p>&emsp;&emsp;可通过instanceof操作符来对引用类型进行检查<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">result = variable <span class="keyword">instanceof</span> constructor</span><br><span class="line">alert(person <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">// 变量 person 是 Object 吗?</span></span><br><span class="line">alert(colors <span class="keyword">instanceof</span> <span class="built_in">Array</span>);  <span class="comment">// 变量 colors 是 Array 吗?</span></span><br><span class="line">alert(pattern <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>);  <span class="comment">//变量pattern是RegExp吗?</span></span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;根据规定,所有引用类型的值都是 Object 的实例。因此,在检测一个引用类型值和Object构造函数时,instanceof 操作符始终会返回 true。当然,如果使用 instanceof 操作符检测基本类型的值,则该操作符始终会返回false,因为基本类型不是对象。</p>
-<h2 id="2-2__u6267_u884C_u73AF_u5883_u53CA_u4F5C_u7528_u57DF"><a href="#2-2__u6267_u884C_u73AF_u5883_u53CA_u4F5C_u7528_u57DF" class="headerlink" title="2.2 执行环境及作用域"></a>2.2 执行环境及作用域</h2><p>&emsp;&emsp;执行环境(execution context)是 JavaScript中最为重要的一个概念。执行环境定义了变量或函数有权访问的其他数据,决定了它们各自的行为。每个执行环境都有一个与之关联的变量对象(variable object),环境中定义的所有变量和函数都保存在这个对象中。</p>
-<p>&emsp;&emsp;每个函数都有自己的执行环境。当执行流进入一个函数时,函数的环境就会被推入一个环境栈中。而在函数执行之后,栈将其环境弹出,把控制权返回给之前的执行环境。ECMAScript 程序中的执行流正是由这个方便的机制控制着。</p>
-<p>&emsp;&emsp;当代码在一个环境中执行时,会创建变量对象的一个作用域链(scope chain)。作用域链的用途,是保证对执行环境有权访问的所有变量和函数的有序访问。作用域链的前端,始终都是当前执行的代码所在环境的变量对象。如果这个环境是函数,则将其活动对象(activation object)作为变量对象。活动对象在最开始时只包含一个变量,即arguments对象(这个对象在全局环境中是不存在的)。作用域链中的下一个变量对象来自包含(外部)环境,而再下一个变量对象则来自下一个包含环境。这样,一直延续到全局执行环境;全局执行环境的变量对象始终都是作用域链中的最后一个对象。</p>
-<h3 id="2-2-1__u5EF6_u957F_u4F5C_u7528_u57DF_u94FE"><a href="#2-2-1__u5EF6_u957F_u4F5C_u7528_u57DF_u94FE" class="headerlink" title="2.2.1 延长作用域链"></a>2.2.1 延长作用域链</h3><p>&emsp;&emsp;虽然执行环境的类型总共只有两种——全局和局部(函数)可通过下面语句在作用域链的前端临时增加一个变量对象来延长作用域链。</p>
-<ul>
-<li>try-catch 语句的 catch 块;</li>
-<li>with 语句。</li>
-</ul>
-<h2 id="2-3__u5783_u573E_u6536_u96C6"><a href="#2-3__u5783_u573E_u6536_u96C6" class="headerlink" title="2.3 垃圾收集"></a>2.3 垃圾收集</h2><p>&emsp;&emsp;JavaScript 具有自动垃圾收集机制,也就是说,执行环境会负责管理代码执行过程中使用的内存。</p>
-<h3 id="2-3-1__u6807_u8BB0_u6E05_u9664"><a href="#2-3-1__u6807_u8BB0_u6E05_u9664" class="headerlink" title="2.3.1 标记清除"></a>2.3.1 标记清除</h3><p>&emsp;&emsp;JavaScript 中最常用的垃圾收集方式是标记清除(mark-and-sweep)。垃圾收集器在运行的时候会给存储在内存中的所有变量都加上标记(当然,可以使用任何标记方式)。然后,它会去掉环境中的变量以及被环境中的变量引用的变量的标记。而在此之后再被加上标记的变量将被视为准备删除的变量,原因是环境中的变量已经无法访问到这些变量了。最后,垃圾收集器完成内存清除工作,销毁那些带标记的值并回收它们所占用的内存空间。</p>
-<h3 id="2-3-2__u5F15_u7528_u8BA1_u6570"><a href="#2-3-2__u5F15_u7528_u8BA1_u6570" class="headerlink" title="2.3.2 引用计数"></a>2.3.2 引用计数</h3><p>&emsp;&emsp;另一种垃圾收集算法是“引用计数”,这种算法的思想是跟踪记录所有值被引用的次数。JavaScript<br>引擎目前都不再使用这种算法;但在 IE 中访问非原生 JavaScript 对象(如 DOM 元素)时,这种算法仍然可能会导致问题。</p>
-<h3 id="2-3-3__u7BA1_u7406_u5185_u5B58"><a href="#2-3-3__u7BA1_u7406_u5185_u5B58" class="headerlink" title="2.3.3 管理内存"></a>2.3.3 管理内存</h3><p>&emsp;&emsp;解除引用(dereferencing)不仅有助于消除循环引用现象,而且对垃圾收集也有好处。为了确保有效地回收内存,应该及时解除不再使用的全局对象、全局对象属性以及循环引用变量的引用。</p>
-<h2 id="2-4__u5C0F_u7ED3"><a href="#2-4__u5C0F_u7ED3" class="headerlink" title="2.4 小结"></a>2.4 小结</h2><p>&emsp;&emsp;JavaScript 变量可以用来保存两种类型的值:基本类型值和引用类型值。基本类型的值源自以下5种基本数据类型:Undefined、Null、Boolean、Number 和 String。基本类型值和引用类型值具 有以下特点:</p>
-<ul>
-<li>基本类型值在内存中占据固定大小的空间,因此被保存在栈内存中;</li>
-<li>从一个变量向另一个变量复制基本类型的值,会创建这个值的一个副本;</li>
-<li>引用类型的值是对象,保存在堆内存中;</li>
-<li>包含引用类型值的变量实际上包含的并不是对象本身,而是一个指向该对象的指针;</li>
-<li>从一个变量向另一个变量复制引用类型的值,复制的其实是指针,因此两个变量最终都指向同<br>一个对象;</li>
-<li>确定一个值是哪种基本类型可以使用 typeof 操作符,而确定一个值是哪种引用类型可以使用 instanceof 操作符。</li>
-</ul>
+        <h1 id="u7B2C5_u7AE0__u51FD_u6570_u8868_u8FBE_u5F0F"><a href="#u7B2C5_u7AE0__u51FD_u6570_u8868_u8FBE_u5F0F" class="headerlink" title="第5章 函数表达式"></a>第5章 函数表达式</h1><h2 id="5-1__u95ED_u5305"><a href="#5-1__u95ED_u5305" class="headerlink" title="5.1 闭包"></a>5.1 闭包</h2><p><strong>闭包：</strong> 是指有权访问另一个函数作用域中的自由变量的函数。创建闭包的常见方式,就是在一个函数内部创建另一个函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">createComparisonFunction</span>(<span class="params">propertyName</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">object1, object2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> value1 = object1[propertyName];</span><br><span class="line">    <span class="keyword">var</span> value2 = object2[propertyName];</span><br><span class="line">    <span class="keyword">if</span> (value1 &lt; value2)&#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (value1 &gt; value2)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;当某个函数被调用时,会创建一个执行环境(execution context)及相应的作用域链。然后,使用 arguments和其他命名参数的值来初始化函数的活动对象(activation object)。</p>
+<div style="text-align:center;margin-bottom:20px;"><br>  <img src="../images/JavaScript高级程序设计/第5章 函数表达式/1.png" width="500"><br></div>
+
+<p>&emsp;&emsp;作用域链的这种配置机制引出了一个值得注意的副作用,即闭包只能取得包含函数中任何变量的最 后一个值。别忘了闭包所保存的是整个变量对象,而不是某个特殊的变量。下面这个例子可以清晰地说明这个问题。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createFunctions</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">    result[i] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> i;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;   </span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;因为每个函数的作用域链中都保存着 createFunctions()函数的活动对象,所以它们引用的都是同一个变量 i。当 createFunctions()函数返回后,变量 i 的值是 10,此时每个函数都引用着保存变量 i 的同一个变量 对象,所以在每个函数内部 i 的值都是 10。可以通过创建一个匿名函数强制让闭包的行为符合预期：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createFunctions</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">    result[i] = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> num;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;(i);  </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="5-2__u5185_u5B58_u6CC4_u6F0F"><a href="#5-2__u5185_u5B58_u6CC4_u6F0F" class="headerlink" title="5.2 内存泄漏"></a>5.2 内存泄漏</h2><p>&emsp;&emsp;由于 IE9 之前的版本对 JScript 对象和 COM 对象使用不同的垃圾收集例程,因此闭包在 IE 的这些版本中会导致一些特殊的问题。具体来说,如果闭包的作用域链中保存着一个HTML 元素,那么就意味着该元素将无法被销毁。只要匿名函数存在,element 的引用数至少也是1,因此它所 占用的内存就永远不会被回收。有必要把 element 变量设置为 null。这样就能够解除对 DOM 对象的引 用,顺利地减少其引用数,确保正常回收其占用的内存。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">assignHandler</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> element = <span class="built_in">document</span>.getElementById(<span class="string">"someElement"</span>);</span><br><span class="line">  element.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(element.id);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改后</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">assignHandler</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> element = <span class="built_in">document</span>.getElementById(<span class="string">"someElement"</span>);</span><br><span class="line">  <span class="keyword">var</span> id = element.id;</span><br><span class="line">  element.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(id);</span><br><span class="line">  &#125;;</span><br><span class="line">  element = <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -342,12 +319,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/05/13/第4章 面向对象的程序设计/" rel="next" title="第4章 面向对象的程序设计">
+                <i class="fa fa-chevron-left"></i> 第4章 面向对象的程序设计
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/12/第3章 引用类型/" rel="prev" title="第3章 引用类型">
-                第3章 引用类型 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/05/13/第6章 DOM/" rel="prev" title="第6章 DOM">
+                第6章 DOM <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -374,8 +355,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/02/24/第2章 变量、作用域和内存/"
-           data-title="第2章 变量、作用域和内存" data-url="http://yoursite.com/2016/02/24/第2章 变量、作用域和内存/">
+      <div class="ds-thread" data-thread-key="2016/05/13/第5章 函数表达式/"
+           data-title="" data-url="http://yoursite.com/2016/05/13/第5章 函数表达式/">
       </div>
     
   </div>
@@ -481,7 +462,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1__u57FA_u672C_u7C7B_u578B_u548C_u5F15_u7528_u7C7B_u578B_u7684_u503C"><span class="nav-number">1.</span> <span class="nav-text">2.1 基本类型和引用类型的值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-1__u4F20_u9012_u53C2_u6570"><span class="nav-number">1.1.</span> <span class="nav-text">2.1.1 传递参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-2__u68C0_u6D4B_u7C7B_u578B"><span class="nav-number">1.2.</span> <span class="nav-text">2.1.2 检测类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2__u6267_u884C_u73AF_u5883_u53CA_u4F5C_u7528_u57DF"><span class="nav-number">2.</span> <span class="nav-text">2.2 执行环境及作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-1__u5EF6_u957F_u4F5C_u7528_u57DF_u94FE"><span class="nav-number">2.1.</span> <span class="nav-text">2.2.1 延长作用域链</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3__u5783_u573E_u6536_u96C6"><span class="nav-number">3.</span> <span class="nav-text">2.3 垃圾收集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1__u6807_u8BB0_u6E05_u9664"><span class="nav-number">3.1.</span> <span class="nav-text">2.3.1 标记清除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2__u5F15_u7528_u8BA1_u6570"><span class="nav-number">3.2.</span> <span class="nav-text">2.3.2 引用计数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-3__u7BA1_u7406_u5185_u5B58"><span class="nav-number">3.3.</span> <span class="nav-text">2.3.3 管理内存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4__u5C0F_u7ED3"><span class="nav-number">4.</span> <span class="nav-text">2.4 小结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u7B2C5_u7AE0__u51FD_u6570_u8868_u8FBE_u5F0F"><span class="nav-number">1.</span> <span class="nav-text">第5章 函数表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1__u95ED_u5305"><span class="nav-number">1.1.</span> <span class="nav-text">5.1 闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2__u5185_u5B58_u6CC4_u6F0F"><span class="nav-number">1.2.</span> <span class="nav-text">5.2 内存泄漏</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
