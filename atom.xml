@@ -16,8 +16,8 @@
   
   <entry>
     <title><![CDATA[第2章 变量、作用域和内存]]></title>
-    <link href="http://yoursite.com/2016/02/24/%E7%AC%AC2%E7%AB%A0-%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%86%85%E5%AD%98/"/>
-    <id>http://yoursite.com/2016/02/24/第2章-变量、作用域和内存/</id>
+    <link href="http://yoursite.com/2016/02/24/%E7%AC%AC2%E7%AB%A0%20%E5%8F%98%E9%87%8F%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E5%86%85%E5%AD%98/"/>
+    <id>http://yoursite.com/2016/02/24/第2章 变量、作用域和内存/</id>
     <published>2016-02-24T15:29:54.000Z</published>
     <updated>2016-02-25T02:26:02.000Z</updated>
     <content type="html"><![CDATA[<h2 id="2-1__u57FA_u672C_u7C7B_u578B_u548C_u5F15_u7528_u7C7B_u578B_u7684_u503C"><a href="#2-1__u57FA_u672C_u7C7B_u578B_u548C_u5F15_u7528_u7C7B_u578B_u7684_u503C" class="headerlink" title="2.1 基本类型和引用类型的值"></a>2.1 基本类型和引用类型的值</h2><p>&emsp;&emsp;ECMAScript变量可能包含两种不同数据类型的值:基本类型值和引用类型值。基本类型值指的是简单的数据段,而引用类型值指那些可能由多个值构成的对象。<br>&emsp;&emsp;在将一个值赋给变量时,解析器必须确定这个值是基本类型值还是引用类型值。第3章讨论了5种基本数据类型:Undefined、Null、Boolean、Number和String。这5种基本数据类型是按值访问的,因为可以操作保存在变量中的实际的值。</p>
